@@ -137,7 +137,7 @@ const obraPorMaterial = useMemo(() => {
       textAlign: "center"
     }}
   >
-    PINAKE - X
+     TABX-tech
   </h1>
 
   <h2
@@ -150,8 +150,9 @@ const obraPorMaterial = useMemo(() => {
       lineHeight: 1.4
     }}
   >
-   Calcula el precio de tu proyecto de arquitectura en segundos.<br />
-    UF/m² → Honorarios UF &amp; CLP
+    Tabla de precios para arquitectura y construcción.<br />
+    Calcula honorarios y costos en segundos. 
+       UF/m² → Honorarios UF &amp; CLP
   </h2>
 </header>
 
