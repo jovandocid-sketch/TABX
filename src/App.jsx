@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import "./App.css";
 
 /** ====== RANGOS UF/m² – versión FULL (honorarios de PROYECTO) ====== */
 const RANGOS = {
@@ -129,31 +130,22 @@ const obraPorMaterial = useMemo(() => {
   </div>
 
   {/* Título y subtítulo centrados */}
-  <h1
-    style={{
-      fontSize: "clamp(20px, 5vw, 32px)",
-      fontWeight: 800,
-      margin: "0 0 8px 0",
-      textAlign: "center"
-    }}
-  >
-     TABX-tech
+ <section style={{ ...panel, marginTop: 18, textAlign: "center" }}>
+  <h1 style={{ fontSize: "clamp(24px, 6vw, 40px)", fontWeight: 800, marginBottom: 8 }}>
+    TABX-tech
   </h1>
 
-  <h2
-    style={{
-      fontSize: "clamp(16px, 4vw, 18px)",
-      fontWeight: 500,
-      color: "#555",
-      margin: 0,
-      textAlign: "center",
-      lineHeight: 1.4
-    }}
-  >
-    Tabla de precios para arquitectura y construcción.<br />
-    Calcula honorarios y costos en segundos. 
-       UF/m² → Honorarios UF &amp; CLP
-  </h2>
+  {/* Claim (frase breve y persuasiva) */}
+  <p style={{ fontSize: "clamp(16px, 4vw, 22px)", fontWeight: 600, marginBottom: 12 }}>
+    Simula el precio de tu proyecto en segundos.
+  </p>
+
+  {/* Subtítulo (explicación descriptiva, sin repetir “segundos”) */}
+  <p style={{ fontSize: "clamp(14px, 3vw, 18px)", fontWeight: 400, maxWidth: 700, margin: "0 auto" }}>
+    Tabla de precios para arquitectura y construcción. Integra honorarios en UF/m² y CLP.
+  </p>
+</section>
+
 </header>
 
 
@@ -351,24 +343,105 @@ const obraPorMaterial = useMemo(() => {
 
 
 
-    {/* Banner publicitario debajo de Imprimir */}
-<div
+  {/* Banner publicitario debajo de Imprimir (enlace a tu web) */}
+<a
+  href="https://jovandocid.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => {
+    if (window.gtag) {
+      window.gtag("event", "click", {
+        event_category: "Banner",
+        event_label: "Banner JOCA (footer lateral)",
+      });
+    }
+  }}
   style={{
     marginTop: 8,
     width: "100%",
-    display: "block",
+    display: "flex",
     boxSizing: "border-box",
-    padding: "8px",
-    background: "#f9fafb",
-    border: "1px dashed #ccc",
+    padding: "10px 14px",
+    background:
+      "linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(34,34,34,1) 100%)",
+    border: "1px solid #111",
     borderRadius: 10,
-    textAlign: "center",
-    minHeight: 44,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "space-between",
+    gap: 12,
+    textDecoration: "none",
+    cursor: "pointer",
   }}
 >
-  <span style={{ fontSize: 13, color: "#666" }}>🔒 Espacio reservado para publicidad</span>
+  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+    <img
+      src="/logos/joc.png"
+      alt="J. Ovando Cid & Arquitectos"
+      style={{ height: 28, objectFit: "contain", filter: "invert(1)" }}
+    />
+    <div style={{ color: "#fff" }}>
+      <div style={{ fontWeight: 800, fontSize: 14 }}>
+        J. Ovando Cid & Arquitectos
+      </div>
+      <div style={{ opacity: 0.85, fontSize: 12, lineHeight: 1.2 }}>
+        Conoce nuestros proyectos →
+      </div>
+    </div>
+  </div>
+
+  <span
+    style={{
+      color: "#fff",
+      fontSize: 12,
+      opacity: 0.85,
+      whiteSpace: "nowrap",
+    }}
+  >
+    Visitar sitio
+  </span>
+</a>
+
+{/* Bloque redes bajo el banner (columna izquierda) */}
+
+{/* Bloque redes para DESKTOP */}
+
+<div className="redes-desktop" style={{
+  marginTop: 8,
+  padding: "8px",
+  border: "1px solid #eaeaea",
+  borderRadius: 10,
+  background: "#fff",
+  textAlign: "center"
+}}>
+  <div style={{ fontSize: 12, color: "#444", marginBottom: 6, fontWeight: 600 }}>
+    Síguenos en redes sociales
+  </div>
+  <div style={{ display: "flex", justifyContent: "center", gap: 12 }}>
+    <a href="https://www.instagram.com/jovandocid_arqs" target="_blank" rel="noopener noreferrer"
+       onClick={() => window.gtag && window.gtag("event","click",{event_category:"Social",event_label:"Instagram (sidebar)"})}
+       title="Instagram" aria-label="Instagram" style={{ color:"#111", textDecoration:"none" }}>
+      {/* IG (SVG) */}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18 6.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/channel/UCcfN96iCWGcqP56pyz6X_eg" target="_blank" rel="noopener noreferrer"
+       onClick={() => window.gtag && window.gtag("event","click",{event_category:"Social",event_label:"YouTube (sidebar)"})}
+       title="YouTube" aria-label="YouTube" style={{ color:"#111", textDecoration:"none" }}>
+      {/* YouTube (SVG) */}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M23.5 7.2a3.1 3.1 0 0 0-2.2-2.2C19.4 4.5 12 4.5 12 4.5s-7.4 0-9.3.5A3.1 3.1 0 0 0 .5 7.2 32.2 32.2 0 0 0 0 12a32.2 32.2 0 0 0 .5 4.8 3.1 3.1 0 0 0 2.2 2.2c1.9.5 9.3.5 9.3.5s7.4 0 9.3-.5a3.1 3.1 0 0 0 2.2-2.2A32.2 32.2 0 0 0 24 12a32.2 32.2 0 0 0-.5-4.8zM9.75 15.02v-6l6 3-6 3z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/jaime-ovando-cid-1a622a38/" target="_blank" rel="noopener noreferrer"
+       onClick={() => window.gtag && window.gtag("event","click",{event_category:"Social",event_label:"LinkedIn (sidebar)"})}
+       title="LinkedIn" aria-label="LinkedIn" style={{ color:"#111", textDecoration:"none" }}>
+      {/* LinkedIn (SVG) */}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8.5h4.9V24H.5V8.5zM8.5 8.5h4.7v2.1h.1c.7-1.3 2.5-2.7 5.1-2.7 5.5 0 6.5 3.6 6.5 8.3V24h-4.9v-6.8c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.5V8.5z"/>
+      </svg>
+    </a>
+  </div>
 </div>
 
 
@@ -450,6 +523,9 @@ const obraPorMaterial = useMemo(() => {
     style={{ height: 80, objectFit: "contain" }}
   />
 </footer>
+<div className="redes-mobile">
+  {/* iconos o links aquí */}
+</div>
 
 <div style={{
   marginTop: 8,
@@ -463,14 +539,11 @@ const obraPorMaterial = useMemo(() => {
 }}>
   Calle Dieciocho 420, Estudio 204 · Santiago de Chile<br/>
   Tel: +56 9 5629 1204 · (2) 2297 5958<br/>
-  contacto@jovandocid.com ·{" "}
-  <a href="https://www.instagram.com/jovandocid_arqs"
-     target="_blank"
-     rel="noopener noreferrer"
-     style={{ color: "#111", fontWeight: 600, textDecoration: "none" }}>
-    Instagram: @jovandocid_arqs
-  </a>
+  contacto@jovandocid.com
+  <br/><br/>
+
 </div>
+
 
     </div>
   );
@@ -528,4 +601,6 @@ const btnGhost = {
 };
 const ul = { margin:"6px 0 2px 0", paddingLeft: "20px" };
 const footer = { marginTop:28, color:"#666", fontSize:13, display:"flex", gap:6, flexWrap:"wrap" };
+
+
 
