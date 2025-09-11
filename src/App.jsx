@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import "./App.css";
 
+
 /** ====== RANGOS UF/m² – versión FULL (honorarios de PROYECTO) ====== */
 const RANGOS = {
   "Vivienda de interés social": [0.35, 0.40, 0.45],
@@ -132,7 +133,7 @@ const obraPorMaterial = useMemo(() => {
   {/* Título y subtítulo centrados */}
  <section style={{ ...panel, marginTop: 18, textAlign: "center" }}>
   <h1 style={{ fontSize: "clamp(24px, 6vw, 40px)", fontWeight: 800, marginBottom: 8 }}>
-    TABX-tech
+    TABX
   </h1>
 
   {/* Claim (frase breve y persuasiva) */}
@@ -142,7 +143,7 @@ const obraPorMaterial = useMemo(() => {
 
   {/* Subtítulo (explicación descriptiva, sin repetir “segundos”) */}
   <p style={{ fontSize: "clamp(14px, 3vw, 18px)", fontWeight: 400, maxWidth: 700, margin: "0 auto" }}>
-    Tabla de precios para arquitectura y construcción. Integra honorarios en UF/m² y CLP.
+    TABX-tech: tabla de precios para arquitectura y construcción. Integra honorarios en UF/m² y CLP.
   </p>
 </section>
 
@@ -150,6 +151,7 @@ const obraPorMaterial = useMemo(() => {
 
 
       <section style={panel}>
+        <h3 style={h3}>Referencia de HONORARIOS por tipo/destino</h3>
         <label style={label}>Tipo / destino</label>
         <select value={tipo} onChange={(e)=>setTipo(e.target.value)} style={input}>
           {TIPOS.map(t => <option key={t} value={t}>{t}</option>)}
