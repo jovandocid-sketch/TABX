@@ -555,8 +555,8 @@ const wrap = { fontFamily:"ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
 const header = { display:"flex", alignItems:"center", gap:16, marginBottom:16, flexWrap:"wrap" };
 const logos = { display:"flex", alignItems:"center", gap:10 };
 const h1 = { fontSize:26, margin:0, lineHeight:1.1 };
-const h3 = { fontSize:18, margin:"0 0 8px 0" };
-const p  = { margin:"6px 0", color:"#333" };
+const h3 = { fontSize:"clamp(14px, 3vw, 18px)", margin:"0 0 8px 0" };
+const p  = { fontSize:"clamp(13px, 2.5vw, 16px)", margin:"6px 0", color:"#333" };
 const panel = { border:"1px solid #eaeaea", borderRadius:14, padding:14, background:"#fff" };
 const grid  = { display:"grid", gap:14, gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))" };
 const input = {
@@ -601,7 +601,7 @@ const btnGhost = {
   cursor: "pointer",
   fontSize: "clamp(13px, 2vw, 16px)"
 };
-const ul = { margin:"6px 0 2px 0", paddingLeft: "20px" };
+const ul = { margin:"6px 0 2px 0", paddingLeft:"20px", fontSize:"clamp(13px, 2.5vw, 15px)" };
 const footer = { marginTop:28, color:"#666", fontSize:13, display:"flex", gap:6, flexWrap:"wrap" };
 
 
