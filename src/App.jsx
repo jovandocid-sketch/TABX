@@ -304,7 +304,7 @@ const obraPorMaterial = useMemo(() => {
 
   <details open={isDesktop}>
     <summary style={{ fontWeight: 600, cursor: "pointer", margin: "12px 0 6px" }}>
-      <strong>Descargo</strong>
+      <strong>¿Para quién es esta herramienta?</strong>
     </summary>
     <p style={p}>
       <strong>Si eres cliente:</strong> Esta herramienta entrega rangos referenciales para orientarte. La propuesta definitiva puede variar según complejidad, ubicación, normativa y alcances específicos.
