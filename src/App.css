@@ -21,3 +21,14 @@
     display: none;
   }
 }
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  footer img {
+    margin: 0 auto;
+  }
+}
+
