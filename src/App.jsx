@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import "./App.css";
 
 
@@ -36,6 +36,15 @@ export default function App() {
   const [ufCLP, setUfCLP] = useState(39428);   // editable; botón intenta traer automático
   const [recargo, setRecargo] = useState(0);   // %
   const [costoObra, setCostoObra] = useState("");
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 900px)");
+    const onChange = () => setIsDesktop(mq.matches);
+    onChange(); // valor inicial
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
 // === OBRA por materialidad (usará tus m2 y UF existentes) ===
 const [material, setMaterial] = useState("");
@@ -259,41 +268,53 @@ const obraPorMaterial = useMemo(() => {
 </section>
 
 <section style={{ ...panel, marginTop: 18 }}>
-  <h3 style={h3}><strong>Alcance general</strong></h3>
-  <ul style={ul}>
-    <li>
-      <strong>Proyectos nuevos:</strong> Desarrollo de proyecto (según tipo/destino) con antecedentes completos para la
-      obtención y gestión del Permiso de Edificación. <em>Este valor no incluye la Recepción Final.</em>
-    </li>
-    <li>
-      <strong>Regularizaciones:</strong> Desarrollo de proyectos de regularización (según tipo/destino) hasta obtener la Recepción Final.
-    </li>
-    <li>
-      <strong>Coordinación básica de especialidades:</strong> Gestión y coordinación mínima con especialistas (estructuras, instalaciones y eficiencia energética), según el alcance contratado.
-    </li>
-    <li>
-      <strong>Encargos aislados:</strong> Para solicitudes puntuales de Recepción Final, se incluye revisión del expediente municipal y ajustes mínimos en planimetría para su aprobación.
-    </li>
-    <li>
-      <strong>Valores de referencia:</strong> Todos los montos expresados corresponden a honorarios brutos.
-    </li>
-  </ul>
+  <details open={isDesktop}>
+    <summary style={{ fontWeight: 600, cursor: "pointer", marginBottom: 6 }}>
+     <strong>Alcance general</strong>
+    </summary>
+    <ul style={ul}>
+      <li>
+        <strong>Proyectos nuevos:</strong> Desarrollo de proyecto (según tipo/destino) con antecedentes completos para la obtención y gestión del Permiso de Edificación. <em>Este valor no incluye la Recepción Final.</em>
+      </li>
+      <li>
+        <strong>Regularizaciones:</strong> Desarrollo de proyectos de regularización (según tipo/destino) hasta obtener la Recepción Final.
+      </li>
+      <li>
+        <strong>Coordinación básica de especialidades:</strong> Gestión y coordinación mínima con especialistas (estructuras, instalaciones y eficiencia energética).
+      </li>
+      <li>
+        <strong>Encargos aislados:</strong> Para solicitudes puntuales de Recepción Final, incluye revisión de expediente municipal y ajustes mínimos en planimetría.
+      </li>
+      <li>
+        <strong>Valores de referencia:</strong> Todos los montos expresados corresponden a honorarios brutos.
+      </li>
+    </ul>
+  </details>
 
-  <h3 style={h3}><strong>Notas</strong></h3>
-  <ul style={ul}>
-    <li>Los honorarios de proyecto no se incluyen dentro de los costos de construcción.</li>
-    <li>En interiorismo, los valores consideran solo el desarrollo de proyecto, sin mobiliario ni materiales de ejecución.</li>
-    <li>Se aplicará un recargo adicional en casos de encargos aislados, condiciones singulares, viajes frecuentes o situaciones de urgencia.</li>
-  </ul>
+  <details open={isDesktop}>
+    <summary style={{ fontWeight: 600, cursor: "pointer", margin: "12px 0 6px" }}>
+      <strong>Notas</strong>
+    </summary>
+    <ul style={ul}>
+      <li>Los honorarios de proyecto no se incluyen dentro de los costos de construcción.</li>
+      <li>En interiorismo, los valores consideran solo el desarrollo de proyecto, sin mobiliario ni materiales de ejecución.</li>
+      <li>Se aplicará un recargo adicional en casos de encargos aislados, condiciones singulares, viajes frecuentes o situaciones de urgencia.</li>
+    </ul>
+  </details>
 
-  <h3 style={h3}><strong>Descargo</strong></h3>
-  <p style={p}>
-    <strong>Si eres cliente:</strong> Esta herramienta entrega rangos referenciales para orientarte. La propuesta definitiva puede variar según complejidad, ubicación, normativa y alcances específicos. Fue creada por J. Ovando Cid &amp; Arquitectos con el propósito de guiarte en la etapa inicial, cuando recién comienzas a imaginar tu proyecto.
-  </p>
-  <p style={p}>
-    <strong>Si eres arquitecto:</strong> Esta herramienta entrega rangos referenciales de honorarios. No reemplaza el análisis particular de los costos directos de tu oficina en cada etapa. Fue creada por J. Ovando Cid &amp; Arquitectos con la intención de compartir criterios de referencia, especialmente útiles para colegas recién titulados como un primer acercamiento a la estructuración de honorarios.
-  </p>
+  <details open={isDesktop}>
+    <summary style={{ fontWeight: 600, cursor: "pointer", margin: "12px 0 6px" }}>
+      <strong>Descargo</strong>
+    </summary>
+    <p style={p}>
+      <strong>Si eres cliente:</strong> Esta herramienta entrega rangos referenciales para orientarte. La propuesta definitiva puede variar según complejidad, ubicación, normativa y alcances específicos.
+    </p>
+    <p style={p}>
+      <strong>Si eres arquitecto:</strong> Esta herramienta entrega rangos referenciales de honorarios. No reemplaza el análisis particular de los costos directos de tu oficina en cada etapa. Fue creada con la intención de compartir criterios de referencia, especialmente útiles para colegas recién titulados como un primer acercamiento a la estructuración de honorarios.
+    </p>
+  </details>
 </section>
+
 
 
 
