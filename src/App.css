@@ -11,3 +11,13 @@
   .redes-desktop { display: block; }
   .redes-mobile { display: none; }
 }
+/* ... tus estilos existentes ... */
+
+@media (min-width: 900px) {
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
