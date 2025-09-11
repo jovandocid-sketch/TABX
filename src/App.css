@@ -1,0 +1,13 @@
+/* --- Mostrar/ocultar bloques de redes según pantalla --- */
+
+/* En pantallas móviles (menos de 768px) */
+@media (max-width: 768px) {
+  .redes-desktop { display: none; }
+  .redes-mobile { display: block; }
+}
+
+/* En pantallas de escritorio (768px o más) */
+@media (min-width: 769px) {
+  .redes-desktop { display: block; }
+  .redes-mobile { display: none; }
+}
