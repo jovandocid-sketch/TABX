@@ -131,7 +131,7 @@ const obraPorMaterial = useMemo(() => {
     <img
       src="/logos/joc.png"
       alt="J. Ovando Cid & Arquitectos"
-      style={{ height: 100, objectFit: "contain" }}
+      style={{ height: 90, objectFit: "contain" }}
     />
 
     <a href="mailto:contacto@jovandocid.com" style={btnSolid}>
@@ -140,10 +140,19 @@ const obraPorMaterial = useMemo(() => {
   </div>
 
   {/* Título y subtítulo centrados */}
- <section style={{ ...panel, marginTop: 18, textAlign: "center" }}>
-  <h1 style={{ fontSize: "clamp(24px, 6vw, 40px)", fontWeight: 800, marginBottom: 8 }}>
+<section style={{ ...panel, marginTop: 18, textAlign: "center" }}>
+
+  {/* Logo + texto TABX */}
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "18px", marginBottom: 8 }}>
+  <img 
+    src="/logos/logo-tabx.png" 
+    alt="Logo TABX" 
+    style={{ width: "52px", height: "52px", paddingRight: "4px", marginTop: "-2px" }} 
+  />
+  <h1 style={{ fontSize: "clamp(24px, 6vw, 40px)", fontWeight: 700, margin: 0 }}>
     TABX
   </h1>
+</div>
 
   {/* Claim (frase breve y persuasiva) */}
   <p style={{ fontSize: "clamp(16px, 4vw, 22px)", fontWeight: 600, marginBottom: 12 }}>
@@ -155,6 +164,7 @@ const obraPorMaterial = useMemo(() => {
     TABX-tech: tabla de precios para arquitectura y construcción. Integra honorarios en UF/m² y CLP.
   </p>
 </section>
+
 
 </header>
 
@@ -624,6 +634,4 @@ const btnGhost = {
 };
 const ul = { margin:"6px 0 2px 0", paddingLeft:"20px", fontSize:"clamp(13px, 2.5vw, 15px)" };
 const footer = { marginTop:28, color:"#666", fontSize:13, display:"flex", gap:6, flexWrap:"wrap" };
-
-
 
