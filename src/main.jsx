@@ -7,3 +7,9 @@ createRoot(document.getElementById("app")).render(
     <App />
   </React.StrictMode>
 );
+// --- PWA: registrar service worker ---
+import { registerSW } from 'virtual:pwa-register'
+
+registerSW({
+  immediate: true, // actualiza en cuanto haya nueva versión
+})
