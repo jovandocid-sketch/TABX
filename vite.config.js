@@ -1,3 +1,4 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -6,57 +7,42 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      // genera el service worker en /sw.js
+      filename: 'sw.js',
       registerType: 'autoUpdate',
+      injectRegister: 'auto',
       devOptions: { enabled: true },
+
       includeAssets: [
         'favicon.ico',
         'logos/favicon-16x16.png',
         'logos/favicon-32x32.png',
-        'logos/favicon-144x144.png',
         'logos/favicon-192x192.png',
         'logos/favicon-256x256.png',
-        'logos/favicon-512x512.png',
-        'logos/screenshot1.png',
-        'logos/screenshot2.png'
+        'logos/favicon-512x512.png'
       ],
+
       manifest: {
-        name: 'TABX-tech · Calculadora de Precios',
-        short_name: 'TABX',
+        name: 'Calculadora de Precios',
+        short_name: 'CalcPrecios',
         start_url: '/',
         display: 'standalone',
         background_color: '#ffffff',
-        theme_color: '#000000',
+        theme_color: '#111111',
         icons: [
-          {
-            src: '/logos/favicon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/logos/favicon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: '/logos/favicon-256x256.png',
-            sizes: '256x256',
-            type: 'image/png'
-          }
+          { src: '/logos/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/logos/favicon-256x256.png', sizes: '256x256', type: 'image/png' },
+          { src: '/logos/favicon-512x512.png', sizes: '512x512', type: 'image/png' }
         ],
         screenshots: [
-          {
-            src: '/logos/screenshot1.png',
-            sizes: '640x480',
-            type: 'image/png'
-          },
-          {
-            src: '/logos/screenshot2.png',
-            sizes: '1280x720',
-            type: 'image/png'
-          }
+          { src: '/logos/screenshot1.png', sizes: '1280x720', type: 'image/png' },
+          { src: '/logos/screenshot2.png', sizes: '720x1280', type: 'image/png' }
         ]
       },
+
+      // asegúrate de que sw.js no se excluya
       workbox: {
+        globDirectory: 'dist',
         globPatterns: ['**/*.{js,css,html,ico,png,svg}']
       }
     })
